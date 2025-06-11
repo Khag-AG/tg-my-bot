@@ -22,10 +22,14 @@ RUN echo "from os import environ" > config.py && \
     echo "BOT_TOKEN = environ.get('BOT_TOKEN', '')" >> config.py && \
     echo "OWNER_ID = int(environ.get('OWNER_ID', 0))" >> config.py && \
     echo "LOG_CHANNEL = int(environ.get('LOG_CHANNEL', 0))" >> config.py && \
-    echo "PORT = int(environ.get('PORT', 8080))" >> config.py
+    echo "PORT = int(environ.get('PORT', 8080))" >> config.py && \
+    echo "BIND_ADDRESS = '0.0.0.0'" >> config.py && \
+    echo "WORKERS = 4" >> config.py && \
+    echo "MULTI_CLIENT = False" >> config.py && \
+    echo "SLEEP_THRESHOLD = 60" >> config.py
 
 # Порт для Railway
 EXPOSE $PORT
 
-# Правильная команда запуска
-CMD python bot.py
+# Проверяем структуру и запускаем
+CMD ls -la && python main.py

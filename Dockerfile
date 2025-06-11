@@ -26,10 +26,11 @@ RUN echo "from os import environ" > config.py && \
     echo "BIND_ADDRESS = '0.0.0.0'" >> config.py && \
     echo "WORKERS = 4" >> config.py && \
     echo "MULTI_CLIENT = False" >> config.py && \
-    echo "SLEEP_THRESHOLD = 60" >> config.py
+    echo "SLEEP_THRESHOLD = 60" >> config.py && \
+    echo "SESSION_NAME = 'filestream_bot'" >> config.py
 
 # Порт для Railway
 EXPOSE $PORT
 
-# Проверяем структуру и запускаем
-CMD ls -la && python main.py
+# Запускаем из папки FileStream
+CMD python -m FileStream

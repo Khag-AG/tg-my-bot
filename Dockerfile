@@ -12,6 +12,9 @@ RUN git clone https://github.com/avipatilpro/FileStreamBot.git .
 # Устанавливаем Python зависимости
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Копируем нашу сессию
+COPY sessions/ /app/sessions/
+
 # Порт для Railway
 EXPOSE $PORT
 

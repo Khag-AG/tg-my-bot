@@ -1,0 +1,36 @@
+{
+    "$schema": "https://railway.app/railway.schema.json",
+    "build": {
+      "builder": "DOCKERFILE",
+      "dockerfilePath": "Dockerfile"
+    },
+    "deploy": {
+      "numReplicas": 1,
+      "restartPolicyType": "ON_FAILURE",
+      "restartPolicyMaxRetries": 10,
+      "healthcheckPath": "/",
+      "healthcheckTimeout": 100
+    },
+    "variables": {
+      "API_ID": {
+        "description": "Telegram API ID from my.telegram.org",
+        "required": true
+      },
+      "API_HASH": {
+        "description": "Telegram API Hash from my.telegram.org", 
+        "required": true
+      },
+      "BOT_TOKEN": {
+        "description": "Bot token from @BotFather",
+        "required": true
+      },
+      "OWNER_ID": {
+        "description": "Your Telegram user ID",
+        "required": true
+      },
+      "LOG_CHANNEL": {
+        "description": "Channel ID for logs (format: -100xxxxxxxxxx)",
+        "required": true
+      }
+    }
+  }
